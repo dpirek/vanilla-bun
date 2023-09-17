@@ -29,7 +29,7 @@ async function router(url) {
 
   if(url.pathname === '/') {
     const messages = await getMessages();
-    return new Response(await renderComponent(Home, {messages}), {headers: headers})
+    return new Response(await renderComponent(Home, {messages}), {headers: headers});
   }
   
   if(url.pathname === '/about') return new Response(await renderComponent(About), {headers: headers});
