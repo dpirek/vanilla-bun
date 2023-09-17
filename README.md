@@ -16,3 +16,9 @@ bun --watch server.js
 
 ## depencies:
 install bun runtime: https://bun.sh/
+more info: https://bun.sh/docs/
+
+## start in production mode:
+```bash
+bun server.js 
+```
