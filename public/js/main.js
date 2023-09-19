@@ -6,7 +6,7 @@ ws.onopen = (event) => {};
 ws.onclose = (event) => {};
 ws.onerror = (error) => console.error(error);
 ws.onmessage = (event) => {
-  messageCointainer.innerHTML = `<strong>hi ${event.data}</strong>`;
+  messageCointainer.innerHTML = event.data;
 };
 
 console.log(ws);

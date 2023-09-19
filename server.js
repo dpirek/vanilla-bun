@@ -3,6 +3,7 @@ import { Database } from "bun:sqlite";
 import Page from "./components/Page";
 import About from "./pages/About";
 import Home from "./pages/Home";
+import Time from './components/Time';
 import { renderToReadableStream } from "react-dom/server";
 const PORT = 3000;
 let tick = 0;
@@ -50,6 +51,16 @@ async function router(url) {
   if(url.pathname === '/about') return new Response(await renderComponent(About), {headers: headers});
 }
 
+async function streamToString(stream) {
+  const chunks = [];
+
+  for await (const chunk of stream) {
+    chunks.push(Buffer.from(chunk));
+  }
+
+  return Buffer.concat(chunks).toString("utf-8");
+}
+
 serve({
   async fetch(req, server) {
     const url = new URL(req.url);
@@ -59,12 +70,13 @@ serve({
   },
   websocket: {
     open(ws) {
-      setInterval(() => {
-        ws.send(`tick from the server ${tick++}`);
+      setInterval(async () => {
+        //ws.send(`tick from the server ${tick++}`);
+        ws.send(await streamToString(await renderToReadableStream(<Time />)));
       }, 1000);
     },
     message(ws, message) {
-      ws.send(message); // echo back the message
+      ws.send(message);
     },
   },
   port: PORT
