@@ -3,6 +3,7 @@ function About() {
     <section>
       <div>
         <h1>About</h1>
+        <hr />
         <p>This is the about page</p>
       </div>
     </section>

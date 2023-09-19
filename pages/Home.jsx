@@ -1,13 +1,8 @@
-function Home({contacts, message}) {
+function Home({ message }) {
   return (
     <section>
-      <h1>Welcome!</h1>
-      {message && <p>{message}</p>}
-      <ul>
-        {contacts.map((item, index) => (
-          <li key={index}>{item.first_name} {item.email} {item.phone}</li>
-        ))}
-      </ul>
+      <h1>Welcome Home!</h1>
+      <hr />
       <div id="message" />
     </section>
   );
