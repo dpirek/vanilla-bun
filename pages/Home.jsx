@@ -8,6 +8,7 @@ function Home({contacts, message}) {
           <li key={index}>{item.first_name} {item.email} {item.phone}</li>
         ))}
       </ul>
+      <div id="message" />
     </section>
   );
 }

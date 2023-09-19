@@ -10,6 +10,7 @@ function Page({children}) {
       <body>
         <Nav />
         {children}
+        <script src="/public/js/main.js" type="module" />
       </body>
     </html>
   )

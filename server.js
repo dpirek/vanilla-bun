@@ -5,6 +5,7 @@ import About from "./pages/About";
 import Home from "./pages/Home";
 import { renderToReadableStream } from "react-dom/server";
 const PORT = 3000;
+let tick = 0;
 
 async function getContacts() {
   try {
@@ -50,9 +51,21 @@ async function router(url) {
 }
 
 serve({
-  async fetch(req) {
+  async fetch(req, server) {
     const url = new URL(req.url);
     if(url.pathname.startsWith('/public/')) return await responseStatic(url);
+    if(url.pathname === "/ws") return server.upgrade(req);
     return await router(url);
-  }, port: PORT
+  },
+  websocket: {
+    open(ws) {
+      setInterval(() => {
+        ws.send(`tick from the server ${tick++}`);
+      }, 1000);
+    },
+    message(ws, message) {
+      ws.send(message); // echo back the message
+    },
+  },
+  port: PORT
 });
