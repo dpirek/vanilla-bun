@@ -4,7 +4,7 @@ import Page from "./components/Page";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import Users from "./pages/Users";
-import Time from './components/Time';
+import Clock from './components/Clock';
 import { renderToReadableStream } from "react-dom/server";
 const PORT = 3000;
 
@@ -71,7 +71,7 @@ serve({
   websocket: {
     open(ws) {
       setInterval(async () => {
-        ws.send(await streamToString(await renderToReadableStream(<Time />)));
+        ws.send(await streamToString(await renderToReadableStream(<Clock />)));
       }, 1000);
     },
     message(ws, message) {
