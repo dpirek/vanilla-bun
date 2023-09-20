@@ -1,19 +1,24 @@
-import Nav from 'react-bootstrap/Nav';
 
-function NavComponent({ url }) {
+function Nav({ url }) {
+  const navItems = [
+    { href: '/', text: 'Home' },
+    { href: '/users', text: 'Users' },
+    { href: '/about', text: 'About' },
+  ];
+
   return (
-    <Nav variant="pills" defaultActiveKey={url.pathname}>
-      <Nav.Item>
-        <Nav.Link href="/">Home</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link href="/users">Users</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link href="/about">About</Nav.Link>
-      </Nav.Item>
-    </Nav>
+    <nav>
+      <ul>
+        {navItems.map((item, index) => (
+          <li key={index}>
+            <a href={item.href} className={url.pathname === item.href ? 'active' : ''}>
+              {item.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 }
 
-export default NavComponent;
+export default Nav;

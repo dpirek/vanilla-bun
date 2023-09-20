@@ -26,6 +26,14 @@ nav li {
   margin-right: 20px;
 }
 
+nav li a {
+  color: #212529;
+}
+
+nav li a.active {
+  color: #007bff;
+}
+
 section {
   padding: 20px;
 }
