@@ -3,7 +3,7 @@
 - Uses jsx components for templates
 - Pure SSR
 - No Client Side JS library
-- Bootstrap 5 React Components for styling (rendered on server side)
+- SSR React live updates via websockets
 
 ## before starting rub script (create contact table)
 ```bash

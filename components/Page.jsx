@@ -6,6 +6,7 @@ function Page({children, url}) {
       <head>
         <title>My App</title>
         <link rel="stylesheet" href="/public/styles.css" />
+        <link rel="stylesheet" href="/public/clock.css" />
       </head>
       <body>
         <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">

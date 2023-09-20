@@ -7,7 +7,6 @@ import Users from "./pages/Users";
 import Time from './components/Time';
 import { renderToReadableStream } from "react-dom/server";
 const PORT = 3000;
-let tick = 0;
 
 async function getContacts() {
   try {
@@ -50,7 +49,6 @@ async function router(url) {
   
   if(url.pathname === '/about') return new Response(await renderComponent(About, {url}), {headers: headers});
   if(url.pathname === '/') return new Response(await renderComponent(Home, {url}), {headers: headers});
-
 }
 
 async function streamToString(stream) {
