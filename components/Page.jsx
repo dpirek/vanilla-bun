@@ -9,7 +9,7 @@ function Page({children, url}) {
         <link rel="stylesheet" href="/public/clock.css" />
       </head>
       <body>
-        <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <header>
           <Nav url={url} />
         </header>
         {children}
