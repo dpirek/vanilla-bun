@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import Users from "./pages/Users";
 import Clock from './components/Clock';
 import { renderToReadableStream } from "react-dom/server";
-const PORT = 3000;
+const PORT = 8080;
 
 async function getContacts() {
   try {
