@@ -1,3 +1,1 @@
-const ws = new WebSocket('ws://localhost:3000/ws');
-
-export default ws;
+export default new WebSocket(`ws://${window.location.host}/ws`);
